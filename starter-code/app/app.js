@@ -7,6 +7,9 @@ var mongoose       = require('mongoose');
 var passport       = require('passport');
 var expressSession = require('express-session');
 var cookieParser   = require("cookie-parser");
+const ENV                = require('./app-env');
+const googleClientKey    = ENV.GOOGLE_CLIENT_ID;
+const googleClientSecret = ENV.GOOGLE_CLIENT_SECRET;
 
 // Mongoose Setup
 mongoose.connect('mongodb://localhost:27017/facebook-authentication-app');
