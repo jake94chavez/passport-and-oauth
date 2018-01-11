@@ -12,7 +12,7 @@ const ENV          = require('./app-env');
 
 
 // Mongoose Setup
-mongoose.connect('mongodb://localhost:27017/google-authentication-app');
+mongoose.connect('mongodb://127.0.0.1:27017/google-authentication-app');
 
 // Middleware
 app.use(cookieParser());
@@ -39,7 +39,7 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 passport.use(new GoogleStrategy({
     clientID: googleClientKey,
     clientSecret: googleClientSecret,
-    callbackURL: "http://www.localhost:3000/auth/google/callback"
+    callbackURL: "http://127.0.0.1:3000/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
        User.findOrCreate({ googleId: profile.id }, function (err, user) {
